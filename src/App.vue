@@ -67,25 +67,25 @@
     </v-navigation-drawer>
     <v-toolbar
       :clipped-left="$vuetify.breakpoint.lgAndUp"
-      color="blue darken-3"
+      color="light-green darken-1"
       dark
       app
       fixed
     >
       <v-toolbar-title style="width: 300px" class="ml-0 pl-3">
         <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-        <span class="hidden-sm-and-down">Google Contacts</span>
+        <span class="hidden-sm-and-down">Baby Tracker</span>
       </v-toolbar-title>
-      <v-text-field
+      <!-- <v-text-field
         flat
         solo-inverted
         hide-details
         prepend-inner-icon="search"
         label="Search"
         class="hidden-sm-and-down"
-      ></v-text-field>
+      ></v-text-field> -->
       <v-spacer></v-spacer>
-      <v-btn icon>
+      <!-- <v-btn icon>
         <v-icon>apps</v-icon>
       </v-btn>
       <v-btn icon>
@@ -98,7 +98,7 @@
             alt="Vuetify"
           >
         </v-avatar>
-      </v-btn>
+      </v-btn> -->
     </v-toolbar>
     <v-content>
       <v-container fluid fill-height>
@@ -111,7 +111,7 @@
               large
               target="_blank"
             >
-              <v-icon large>code</v-icon>
+              <!-- <v-icon large>code</v-icon> -->
             </v-btn>
             <span>Source</span>
           </v-tooltip>
@@ -128,7 +128,7 @@
       fab
       bottom
       right
-      color="pink"
+      color="light-green darken-4"
       dark
       fixed
       @click="dialog = !dialog"
@@ -207,36 +207,36 @@
       dialog: false,
       drawer: null,
       items: [
-        { icon: 'contacts', text: 'Contacts' },
-        { icon: 'history', text: 'Frequently contacted' },
-        { icon: 'content_copy', text: 'Duplicates' },
+        { icon: 'local_hospital', text: 'Health' },
+        { icon: 'history', text: 'Plans' },
+        { icon: 'directions_walk', text: 'Walk' },
+        // {
+        //   icon: 'keyboard_arrow_up',
+        //   'icon-alt': 'keyboard_arrow_down',
+        //   text: 'Labels',
+        //   model: true,
+        //   children: [
+        //     { icon: 'add', text: 'Create label' }
+        //   ]
+        // },
         {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'Labels',
-          model: true,
-          children: [
-            { icon: 'add', text: 'Create label' }
-          ]
+          // icon: 'keyboard_arrow_up',
+          // 'icon-alt': 'keyboard_arrow_down',
+          // text: 'More',
+          // model: false,
+          // children: [
+            // { text: 'Import' },
+            // { text: 'Export' },
+            // { text: 'Print' },
+            // { text: 'Undo changes' },
+            // { text: 'Other contacts' }
+          // ]
         },
-        {
-          icon: 'keyboard_arrow_up',
-          'icon-alt': 'keyboard_arrow_down',
-          text: 'More',
-          model: false,
-          children: [
-            { text: 'Import' },
-            { text: 'Export' },
-            { text: 'Print' },
-            { text: 'Undo changes' },
-            { text: 'Other contacts' }
-          ]
-        },
-        { icon: 'settings', text: 'Settings' },
-        { icon: 'chat_bubble', text: 'Send feedback' },
-        { icon: 'help', text: 'Help' },
-        { icon: 'phonelink', text: 'App downloads' },
-        { icon: 'keyboard', text: 'Go to the old version' }
+        // { icon: 'settings', text: 'Settings' },
+        // { icon: 'chat_bubble', text: 'Send feedback' },
+        // { icon: 'help', text: 'Help' },
+        // { icon: 'phonelink', text: 'App downloads' },
+        // { icon: 'keyboard', text: 'Go to the old version' }
       ]
     }),
     props: {
