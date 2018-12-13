@@ -79,20 +79,11 @@
         class="hidden-sm-and-down"
       ></v-text-field> -->
       <v-spacer></v-spacer>
-      <!-- <v-btn icon>
-        <v-icon>apps</v-icon>
+ 
+       <v-btn icon to="profile">
+            <v-icon >account_circle</v-icon>
       </v-btn>
-      <v-btn icon>
-        <v-icon>notifications</v-icon>
-      </v-btn>
-      <v-btn icon large>
-        <v-avatar size="32px" tile>
-          <img
-            src="https://cdn.vuetifyjs.com/images/logos/logo.svg"
-            alt="Vuetify"
-          >
-        </v-avatar>
-      </v-btn> -->
+     
     </v-toolbar>
     <v-content>
              <router-view></router-view>
@@ -110,16 +101,28 @@ import DialogContact from './components/DialogContact.vue'
     data: () => ({
       dialog: false,
       drawer: null,
-      items: [
-        { icon: 'local_hospital', text: 'Health', link: '/medicine' },
-        { icon: 'history', text: 'Plans', link: '/plans'  },
-        { icon: 'directions_walk', text: 'Walking', link: '/walking'  },
-        { icon: 'local_drink', text: 'Feeding', link: '/feeding'  },
-        { icon: 'lock_open', text: 'Signin', link: '/signin'  },
-        { icon: 'face', text: 'Signup', link: '/signup'  },
-        { icon: 'person', text: 'Profile', link: '/profile'  },
-      ]
     }),
+     computed: {
+      items () {
+        let items = [
+          {icon: 'person', title: 'Sign up', link: '/signup'},
+          {icon: 'lock_open', title: 'Sign in', link: '/signin'}
+        ]
+        if (this.userIsAuthenticated) {
+          items = [
+            {icon: 'person', text: 'Profile', link: '/profile'},
+            { icon: 'local_hospital', text: 'Health', link: '/medicine' },
+            { icon: 'history', text: 'Plans', link: '/plans'  },
+            { icon: 'directions_walk', text: 'Walking', link: '/walking'  },
+            { icon: 'local_drink', text: 'Feeding', link: '/feeding'  },
+          ]
+        }
+        return items
+      },
+      userIsAuthenticated () {
+        return this.$store.getters.user !== null && this.$store.getters.user !== undefined
+      }
+    },
     props: {
       source: String
     },
