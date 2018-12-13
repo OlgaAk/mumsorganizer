@@ -46,9 +46,9 @@
               </v-list-tile-content>
             </v-list-tile>
           </v-list-group>
-          <v-list-tile v-else :key="item.text" @click="" >
+          <v-list-tile v-else :key="item.text" @click="" :to="item.link" >
             <v-list-tile-action >
-              <v-icon large>{{ item.icon }}</v-icon>
+              <v-icon medium color="green" >{{ item.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
               <v-list-tile-title class="subheading">
@@ -95,135 +95,36 @@
       </v-btn> -->
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout >
-          <medicine></medicine>
-           
-        </v-layout>
-      </v-container>
-    </v-content>
-    <v-btn
-      fab
-      bottom
-      right
-      color="light-green darken-4"
-      dark
-      fixed
-      @click="dialog = !dialog"
-    >
-      <v-icon>add</v-icon>
-    </v-btn>
-    <v-dialog v-model="dialog" width="800px">
-      <v-card>
-        <v-card-title
-          class="grey lighten-4 py-4 title"
-        >
-          Create contact
-        </v-card-title>
-        <v-container grid-list-sm class="pa-4">
-          <v-layout row wrap>
-            <v-flex xs12 align-center justify-space-between>
-              <v-layout align-center>
-                <v-avatar size="40px" class="mr-3">
-                  <img
-                    src="//ssl.gstatic.com/s2/oz/images/sge/grey_silhouette.png"
-                    alt=""
-                  >
-                </v-avatar>
-                <v-text-field
-                  placeholder="Name"
-                ></v-text-field>
-              </v-layout>
-            </v-flex>
-            <v-flex xs6>
-              <v-text-field
-                prepend-icon="business"
-                placeholder="Company"
-              ></v-text-field>
-            </v-flex>
-            <v-flex xs6>
-              <v-text-field
-                placeholder="Job title"
-              ></v-text-field>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field
-                prepend-icon="mail"
-                placeholder="Email"
-              ></v-text-field>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field
-                type="tel"
-                prepend-icon="phone"
-                placeholder="(000) 000 - 0000"
-                mask="phone"
-              ></v-text-field>
-            </v-flex>
-            <v-flex xs12>
-              <v-text-field
-                prepend-icon="notes"
-                placeholder="Notes"
-              ></v-text-field>
-            </v-flex>
-          </v-layout>
-        </v-container>
-        <v-card-actions>
-          <v-btn flat color="primary">More</v-btn>
-          <v-spacer></v-spacer>
-          <v-btn flat color="primary" @click="dialog = false">Cancel</v-btn>
-          <v-btn flat @click="dialog = false">Save</v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
+             <router-view></router-view>
+       </v-content>
+
+    <!-- <dialog-contact :dialog="dialog"></dialog-contact> -->
+ 
   </v-app>
 </template>
 
 <script>
-import Medicine from './components/Medicine.vue'
+import DialogContact from './components/DialogContact.vue'
 
   export default {
     data: () => ({
       dialog: false,
       drawer: null,
       items: [
-        { icon: 'local_hospital', text: 'Health' },
-        { icon: 'history', text: 'Plans' },
-        { icon: 'directions_walk', text: 'Walk' },
-        // {
-        //   icon: 'keyboard_arrow_up',
-        //   'icon-alt': 'keyboard_arrow_down',
-        //   text: 'Labels',
-        //   model: true,
-        //   children: [
-        //     { icon: 'add', text: 'Create label' }
-        //   ]
-        // },
-        {
-          // icon: 'keyboard_arrow_up',
-          // 'icon-alt': 'keyboard_arrow_down',
-          // text: 'More',
-          // model: false,
-          // children: [
-            // { text: 'Import' },
-            // { text: 'Export' },
-            // { text: 'Print' },
-            // { text: 'Undo changes' },
-            // { text: 'Other contacts' }
-          // ]
-        },
-        // { icon: 'settings', text: 'Settings' },
-        // { icon: 'chat_bubble', text: 'Send feedback' },
-        // { icon: 'help', text: 'Help' },
-        // { icon: 'phonelink', text: 'App downloads' },
-        // { icon: 'keyboard', text: 'Go to the old version' }
+        { icon: 'local_hospital', text: 'Health', link: '/medicine' },
+        { icon: 'history', text: 'Plans', link: '/plans'  },
+        { icon: 'directions_walk', text: 'Walking', link: '/walking'  },
+        { icon: 'local_drink', text: 'Feeding', link: '/feeding'  },
+        { icon: 'lock_open', text: 'Signin', link: '/signin'  },
+        { icon: 'face', text: 'Signup', link: '/signup'  },
+        { icon: 'person', text: 'Profile', link: '/profile'  },
       ]
     }),
     props: {
       source: String
     },
     components: {
-      Medicine
+      DialogContact
     }
   }
 </script>

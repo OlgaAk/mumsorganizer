@@ -1,12 +1,12 @@
 <template>
-  <div class="startscreen">
+  <div class="home">
     <h2>Welcome to our app</h2>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Startscreen',
+  name: 'Home',
   props: {
     msg: String
   }
