@@ -63,9 +63,7 @@
         <v-card class="light-green lighten-5">
          
           <v-card-text class="">{{i}}</v-card-text>
-           <v-card-text  class="corner-ribbon"></v-card-text >
-           <v-card-text  class="corner-ribbon-2"></v-card-text >
-            <v-card-text  class="corner-ribbon-3"></v-card-text >
+
         </v-card>
       </v-flex>
 </v-layout>
@@ -123,47 +121,4 @@ export default {
 
   }
 
-  .corner-ribbon{
-  width: 25px;
-  background: rgb(225, 238, 51);
-  position: absolute;
-  bottom: 5px;
-  right: -4px;
-  text-align: center;
-  line-height: 1px;
-  letter-spacing: 1px;
-  color: #f0f0f0;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  padding:4px
-}
-  .corner-ribbon-2{
-  width: 12px;
-  background: blue;
-  position: absolute;
-  bottom: 1px;
-  right: -4px;
-  text-align: center;
-  line-height: 1px;
-  letter-spacing: 1px;
-  color: #f0f0f0;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  padding:3px
-}
-
-  .corner-ribbon-3{
-  width: 40px;
-  background: orange;
-  position: absolute;
-  bottom: 10px;
-  right: -4px;
-  text-align: center;
-  line-height: 1px;
-  letter-spacing: 1px;
-  color: #f0f0f0;
-  transform: rotate(-45deg);
-  -webkit-transform: rotate(-45deg);
-  padding:4px
-}
 </style>
