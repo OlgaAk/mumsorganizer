@@ -17,12 +17,7 @@ new Vue({
   render: h => h(App),
   created () {
     firebase.initializeApp({
-      apiKey: "AIzaSyA_j-FonahXaEu85n6LZAOUwOmpYyjwSuo",
-      authDomain: "mumsorganizer.firebaseapp.com",
-      databaseURL: "https://mumsorganizer.firebaseio.com",
-      projectId: "mumsorganizer",
-      storageBucket: "mumsorganizer.appspot.com",
-      messagingSenderId: "9047693151"
+      
     })
   }
 }).$mount('#app')
